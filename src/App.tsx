@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { ClipboardList } from 'lucide-react';
+
 import TaskForm from './components/TaskForm';
 import TaskCard from './components/TaskCard';
 import ThemeToggle from './components/ThemeToggle';
@@ -81,7 +81,7 @@ const toggleStatus = (status: 'completed' | 'pending') => (status === 'completed
 const Header = ({ darkMode, onToggleDarkMode }: { darkMode: boolean; onToggleDarkMode: () => void }) => (
   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-8 mb-6 sm:mb-8">
     <div className="flex items-center gap-3">
-      <ClipboardList className="w-7 h-7 sm:w-8 sm:h-8 text-blue-600 dark:text-blue-400" />
+      
       <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Lista de tarefas 📝</h1>
     </div>
     <ThemeToggle darkMode={darkMode} onToggle={onToggleDarkMode} />
@@ -98,7 +98,7 @@ const TaskList = ({ tasks, onEdit, onDelete, onToggleStatus }: {
   <div className="space-y-4">
     {tasks.length === 0 ? (
       <div className="text-center py-8 sm:py-12 bg-white dark:bg-gray-800 rounded-lg shadow-sm">
-        <p className="text-gray-500 dark:text-gray-400">No tasks yet. Add one to get started!</p>
+        <p className="text-gray-500 dark:text-gray-400">Sem tarefas aqui. Adicione uma tarefa para começar!</p>
       </div>
     ) : (
       tasks.map(task => (
