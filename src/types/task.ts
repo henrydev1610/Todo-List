@@ -2,7 +2,8 @@ export interface Task {
   id: string;
   title: string;
   description: string;
-  status: 'pending' | 'completed';
-  priority: 'low' | 'medium' | 'high';
+  priority: 'baixa' | 'média' | 'alta';
+  status: 'pendente' | 'completada';
   createdAt: string;
+  image?: string; // Adicionado para armazenar o link da imagem
 }

@@ -23,7 +23,7 @@ function App() {
         ...taskData,
         id: crypto.randomUUID(), // Substitua por uuid() caso haja problemas de compatibilidade
         createdAt: new Date().toISOString(),
-        status: 'pending', // Adiciona status padrão caso esteja faltando
+        status: 'pendente', // Adiciona status padrão caso esteja faltando
       };
       setTasks(prev => [newTask, ...prev]);
     },
@@ -33,9 +33,11 @@ function App() {
   // Função para editar uma tarefa existente
   const handleEditTask = useCallback(
     (taskData: Omit<Task, 'id' | 'createdAt'>) => {
-      if (!editingTask) return;
-      setTasks(prev => prev.map(task => (task.id === editingTask.id ? { ...task, ...taskData } : task)));
-      setEditingTask(null);
+      if (!editingTask) return; // Verifica se há uma tarefa em edição
+      setTasks(prev =>
+        prev.map(task => (task.id === editingTask.id ? { ...task, ...taskData } : task))
+      );
+      setEditingTask(null); // Limpa o estado de edição após salvar
     },
     [editingTask]
   );
@@ -46,11 +48,18 @@ function App() {
   }, []);
 
   // Função para alternar o status da tarefa
-  const handleToggleStatus = useCallback((id: string) => {
-    setTasks(prev =>
-      prev.map(task => (task.id === id ? { ...task, status: toggleStatus(task.status) } : task))
-    );
-  }, []);
+  // Função para alternar o status entre 'completada' e 'pendente'
+const toggleStatus = (status: 'completada' | 'pendente') => 
+  status === 'completada' ? 'pendente' : 'completada';
+
+// Função para alternar o status da tarefa
+const handleToggleStatus = useCallback((id: string) => {
+  setTasks(prev =>
+    prev.map(task =>
+      task.id === id ? { ...task, status: toggleStatus(task.status) } : task
+    )
+  );
+}, []);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
@@ -75,18 +84,18 @@ const saveTasksToLocalStorage = (tasks: Task[]) => {
 };
 
 // Função para alternar o status entre 'completed' e 'pending'
-const toggleStatus = (status: 'completed' | 'pending') => (status === 'completed' ? 'pending' : 'completed');
+const toggleStatus = (status: 'completada' | 'pendente') => (status === 'completada' ? 'pendente' : 'completado');
 
 // Componente de cabeçalho
 const Header = ({ darkMode, onToggleDarkMode }: { darkMode: boolean; onToggleDarkMode: () => void }) => (
-  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-8 mb-6 sm:mb-8">
-    <div className="flex items-center gap-3">
-      
-      <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">Lista de tarefas 📝</h1>
-    </div>
+  <div className="flex items-center justify-between mb-6 sm:mb-8">
+    <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
+      Lista de tarefas 📝
+    </h1>
     <ThemeToggle darkMode={darkMode} onToggle={onToggleDarkMode} />
   </div>
 );
+
 
 // Componente de lista de tarefas
 const TaskList = ({ tasks, onEdit, onDelete, onToggleStatus }: {
