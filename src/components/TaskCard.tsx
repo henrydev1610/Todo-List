@@ -36,7 +36,7 @@ export default function TaskCard({ task, onEdit, onDelete, onToggleStatus }: Tas
           <img
             src={task.image}
             alt="Imagem da tarefa"
-            className="w-full h-40 object-cover rounded-lg"
+            className="w-full h-60 object-cover rounded-lg"
           />
         </div>
       )}      
