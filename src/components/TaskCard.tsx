@@ -55,7 +55,7 @@ export default function TaskCard({ task, onEdit, onDelete, onToggleStatus }: Tas
 
       <div className="flex flex-col-reverse sm:flex-row gap-4 sm:gap-0 justify-between items-start sm:items-center">
         <div className="text-sm text-gray-500 dark:text-gray-400 w-full sm:w-auto">
-          Created: {new Date(task.createdAt).toLocaleDateString()}
+          Criada em: {new Date(task.createdAt).toLocaleDateString()}
         </div>
 
         <div className="flex gap-1 sm:gap-2 w-full sm:w-auto justify-end">
