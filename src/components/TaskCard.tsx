@@ -87,6 +87,8 @@ export default function TaskCard({ task, onEdit, onDelete, onToggleStatus }: Tas
             <Trash2 size={20} />
           </button>
         </div>
+
+            
       </div>
     </div>
   );

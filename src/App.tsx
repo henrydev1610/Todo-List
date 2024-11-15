@@ -120,7 +120,13 @@ const TaskList = ({ tasks, onEdit, onDelete, onToggleStatus }: {
         />
       ))
     )}
+    <div>
+    <h4 className='text-white text-center opacity-20' >Desenvolvido By: <a href="https://www.henrydev.com.br/">@henryDev_</a></h4>
+
+    </div>
   </div>
+
+  
 );
 
 export default App;
