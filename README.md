@@ -1,13 +1,17 @@
 # To-Do List App
 
-![To-Do List App](https://via.placeholder.com/800x400?text=Project+Screenshot)
+<img src="./src/todo-print.png"  />
 
+[To-Do List App - Live Demo](https://project-chi-cyan.vercel.app/)
+
+  
 Este é um projeto de To-Do List desenvolvido com **TypeScript**, **React** e **Tailwind CSS**. O objetivo do aplicativo é gerenciar tarefas de forma eficiente, permitindo adicionar, editar, excluir e priorizar tarefas.
 
 ## 🚀 Tecnologias
 
 Este projeto foi desenvolvido com as seguintes tecnologias:
 
+- [TypeScript](https://www.typescriptlang.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [React](https://reactjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
